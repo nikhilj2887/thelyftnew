@@ -24,14 +24,12 @@ export default function Navbar() {
     { href: "#home", label: "Home" },
     { href: "#about", label: "About" },
     { href: "#services", label: "Services" },
-    
     { href: "#expertise", label: "Expertise" },
     { href: "#contact", label: "Contact" },
   ];
 
   const handleNavigation = (href: string) => {
-    if (pathname === "/form") {
-      // Go to home page first, then scroll
+    if (pathname === "/form" || pathname === "/resume-builder") {
       router.push("/" + href);
     } else {
       const element = document.querySelector(href);
@@ -52,6 +50,7 @@ export default function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 lg:h-20">
+          
           {/* Logo */}
           <Link href="/" className="flex items-center group">
             <img
@@ -63,6 +62,7 @@ export default function Navbar() {
 
           {/* Desktop Menu */}
           <div className="hidden lg:flex items-center space-x-1">
+            
             {navLinks.map((link) => (
               <button
                 key={link.href}
@@ -74,6 +74,15 @@ export default function Navbar() {
               </button>
             ))}
 
+            {/* ✅ Resume Builder */}
+            <Link
+              href="/resume-builder"
+              className="px-4 py-2 text-[#151515] font-semibold hover:text-[#5392d5] transition"
+            >
+              Resume Builder
+            </Link>
+
+            {/* CTA */}
             <Link
               href="/form"
               className="ml-4 px-6 py-3 bg-[#f0c831] text-[#151515] rounded-lg font-semibold hover:bg-[#e3b721] hover:shadow-lg hover:shadow-[#f0c831]/40 transition-all duration-300 transform hover:-translate-y-0.5 font-heading"
@@ -100,6 +109,7 @@ export default function Navbar() {
       {isMobileMenuOpen && (
         <div className="lg:hidden bg-white border-t border-[#5392d5]/20 shadow-lg">
           <div className="px-4 py-6 space-y-3">
+
             {navLinks.map((link) => (
               <button
                 key={link.href}
@@ -110,8 +120,19 @@ export default function Navbar() {
               </button>
             ))}
 
+            {/* ✅ Resume Builder (Mobile) */}
+            <Link
+              href="/resume-builder"
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="block px-4 py-3 text-[#151515] font-semibold hover:bg-[#5392d5]/10 rounded-lg"
+            >
+              Resume Builder
+            </Link>
+
+            {/* CTA */}
             <Link
               href="/form"
+              onClick={() => setIsMobileMenuOpen(false)}
               className="block px-4 py-3 bg-[#f0c831] text-[#151515] rounded-lg font-semibold text-center hover:bg-[#e3b721] hover:shadow-lg hover:shadow-[#f0c831]/40 transition-all duration-300 font-heading"
             >
               Connect With Us

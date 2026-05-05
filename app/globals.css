@@ -1,17 +1,21 @@
 @import "tailwindcss";
 
+/* Theme variables */
 :root {
   --background: #ffffff;
   --foreground: #171717;
 }
 
+/* Tailwind theme mapping */
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+
+  /* ✅ Match LIVE font system */
+  --font-body: "Inter", system-ui, -apple-system, sans-serif;
 }
 
+/* Dark mode */
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
@@ -19,8 +23,37 @@
   }
 }
 
+/* ✅ GLOBAL FONT (MATCH LIVE) */
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Inter", system-ui, -apple-system, sans-serif;
+}
+
+/* ✅ Ensure everything inherits Inter */
+*, *::before, *::after {
+  font-family: inherit;
+}
+
+/* ✅ Fix form elements (critical for matching live) */
+input, textarea, select, button {
+  font-family: inherit;
+}
+
+
+/* ========================= */
+/* ✨ Animation Utilities */
+/* ========================= */
+
+/* Base fade-in section (used with scroll animations) */
+.fade-in-section {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.7s ease-out;
+}
+
+/* When visible */
+.fade-in-section.visible {
+  opacity: 1;
+  transform: translateY(0);
 }

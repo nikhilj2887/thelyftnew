@@ -36,10 +36,10 @@ export interface Education {
 
 export interface Project {
   id: string;
-  name: string;
+  title: string;
   description: string;
   technologies: string;
-  link: string;
+  link?: string;
 }
 
 export interface Certification {
@@ -51,7 +51,7 @@ export interface Certification {
 }
 
 export interface ResumeData {
-  personal: PersonalInfo;
+  personalInfo: PersonalInfo;
   summary: string;
   experience: WorkExperience[];
   education: Education[];
@@ -62,7 +62,7 @@ export interface ResumeData {
 }
 
 export const defaultResumeData: ResumeData = {
-  personal: {
+  personalInfo: {
     fullName: "",
     jobTitle: "",
     email: "",

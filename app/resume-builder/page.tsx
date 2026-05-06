@@ -50,7 +50,7 @@ export default function ResumeBuilderPage() {
       <!DOCTYPE html>
       <html>
         <head>
-          <title>${resumeData.personal.fullName || 'Resume'}</title>
+          <title>${resumeData.personalInfo.fullName || 'Resume'}</title>
           <style>
             * { margin: 0; padding: 0; box-sizing: border-box; }
             body { font-family: 'Georgia', serif; }
@@ -80,9 +80,11 @@ export default function ResumeBuilderPage() {
   const renderForm = () => (
     <div className="space-y-8 p-6 overflow-y-auto max-h-[calc(100vh-12rem)]">
       <PersonalInfoForm
-        data={resumeData.personal}
-        onChange={(personal) => setResumeData({ ...resumeData, personal })}
-      />
+  data={resumeData.personalInfo}
+  onChange={(personalInfo) =>
+    setResumeData({ ...resumeData, personalInfo })
+  }
+/>
       <hr className="border-[#5392d5]/10" />
       <SummaryForm
         data={resumeData.summary}

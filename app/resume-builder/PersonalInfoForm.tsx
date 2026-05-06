@@ -5,6 +5,7 @@ import {
   MapPin,
   Globe,
   Briefcase,
+  type LucideIcon,
 } from "lucide-react";
 
 import type { PersonalInfo } from "../types/resume";
@@ -14,11 +15,19 @@ interface Props {
   onChange: (data: PersonalInfo) => void;
 }
 
+interface FieldConfig {
+  key: keyof PersonalInfo;
+  label: string;
+  icon: LucideIcon;
+  placeholder: string;
+  type?: string;
+  required?: boolean;
+}
+
 export default function PersonalInfoForm({
   data,
   onChange,
 }: Props) {
-
   const handleChange = (
     field: keyof PersonalInfo,
     value: string
@@ -29,7 +38,7 @@ export default function PersonalInfoForm({
     });
   };
 
-  const fields = [
+  const fields: FieldConfig[] = [
     {
       key: "fullName",
       label: "Full Name",
@@ -77,7 +86,7 @@ export default function PersonalInfoForm({
       icon: Globe,
       placeholder: "johndoe.dev",
     },
-  ] as const;
+  ];
 
   return (
     <div className="space-y-5">
@@ -106,7 +115,7 @@ export default function PersonalInfoForm({
 
                 <input
                   type={field.type || "text"}
-                  value={data[field.key]}
+                  value={data[field.key] || ""}
                   onChange={(e) =>
                     handleChange(field.key, e.target.value)
                   }

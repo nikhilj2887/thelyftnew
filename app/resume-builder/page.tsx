@@ -23,8 +23,8 @@ import Navbar from "../components/Navbar";
 import MinimalTemplate from './templates/MinimalTemplate';
 import ModernTemplate from './templates/ModernTemplate';
 import CompactTemplate from './templates/CompactTemplate';
-import type { ResumeData, TemplateType } from '../../types/resume';
-import { defaultResumeData } from '../../types/resume';
+import type { ResumeData, TemplateType } from '../types/resume';
+import { defaultResumeData } from '../types/resume';
 
 const TEMPLATES: { id: TemplateType; name: string; description: string }[] = [
   { id: 'minimal', name: 'Minimal Professional', description: 'Clean serif layout — traditional and ATS-optimized' },

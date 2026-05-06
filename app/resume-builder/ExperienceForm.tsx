@@ -1,5 +1,5 @@
 import { Plus, Trash2, GripVertical } from "lucide-react";
-import type { WorkExperience } from "../types/resume";
+import type { WorkExperience } from "../../types/resume";
 
 interface Props {
   data: WorkExperience[];

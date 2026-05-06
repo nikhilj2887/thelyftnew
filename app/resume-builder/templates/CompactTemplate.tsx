@@ -5,7 +5,16 @@ interface Props {
 }
 
 export default function CompactTemplate({ data }: Props) {
-  const { personal, summary, experience, education, skills, projects, certifications, achievements } = data;
+  const {
+  personalInfo,
+  summary,
+  experience,
+  education,
+  skills,
+  projects,
+  certifications,
+  achievements,
+} = data;
 
   return (
     <div className="font-['Roboto',sans-serif] text-[10px] leading-[1.45] text-[#333] p-6 bg-white min-h-[297mm] w-full">
@@ -13,19 +22,19 @@ export default function CompactTemplate({ data }: Props) {
       <header className="mb-4">
         <div className="flex items-baseline justify-between border-b border-[#222] pb-2">
           <div>
-            {personal.fullName && (
-              <h1 className="text-xl font-bold text-[#111]">{personal.fullName}</h1>
+            {personalInfo..fullName && (
+              <h1 className="text-xl font-bold text-[#111]">{personalInfo..fullName}</h1>
             )}
-            {personal.jobTitle && (
-              <p className="text-[11px] text-[#555]">{personal.jobTitle}</p>
+            {personalInfo..jobTitle && (
+              <p className="text-[11px] text-[#555]">{personalInfo..jobTitle}</p>
             )}
           </div>
           <div className="text-right text-[9px] text-[#555] space-y-0.5">
-            {personal.email && <p>{personal.email}</p>}
-            {personal.phone && <p>{personal.phone}</p>}
-            {personal.location && <p>{personal.location}</p>}
-            {personal.linkedin && <p>{personal.linkedin}</p>}
-            {personal.portfolio && <p>{personal.portfolio}</p>}
+            {personalInfo..email && <p>{personalInfo..email}</p>}
+            {personalInfo..phone && <p>{personalInfo..phone}</p>}
+            {personalInfo..location && <p>{personalInfo..location}</p>}
+            {personalInfo..linkedin && <p>{personalInfo..linkedin}</p>}
+            {personalInfo..portfolio && <p>{personalInfo..portfolio}</p>}
           </div>
         </div>
       </header>

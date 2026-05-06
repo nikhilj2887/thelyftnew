@@ -10,7 +10,13 @@ export default function ProjectsForm({ data, onChange }: Props) {
   const addProject = () => {
     onChange([
       ...data,
-      { id: crypto.randomUUID(), name: '', description: '', technologies: '', link: '' },
+      {
+  id: crypto.randomUUID(),
+  title: '',
+  description: '',
+  technologies: '',
+  link: '',
+}
     ]);
   };
 
@@ -54,8 +60,8 @@ export default function ProjectsForm({ data, onChange }: Props) {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <input
                 type="text"
-                value={project.name}
-                onChange={(e) => updateProject(project.id, 'name', e.target.value)}
+                value={project.title}
+                onChange={(e) => updateProject(project.id, 'title', e.target.value)}
                 placeholder="Project Name"
                 className="w-full px-3 py-2.5 bg-white border-2 border-[#5392d5]/20 rounded-xl text-sm text-[#151515] placeholder-[#151515]/40 focus:outline-none focus:border-[#5392d5] transition-all duration-300 font-body"
               />

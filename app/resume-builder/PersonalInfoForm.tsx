@@ -8,7 +8,7 @@ import {
   type LucideIcon,
 } from "lucide-react";
 
-import type { PersonalInfo } from "../../types/resume";
+import type { PersonalInfo } from "../types/resume";
 
 interface Props {
   data: PersonalInfo;

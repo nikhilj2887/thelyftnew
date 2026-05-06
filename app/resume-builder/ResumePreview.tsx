@@ -1,4 +1,4 @@
-import type { ResumeData, TemplateType } from '../../types/resume';
+import type { ResumeData, TemplateType } from '../types/resume';
 import MinimalTemplate from './templates/MinimalTemplate';
 import ModernTemplate from './templates/ModernTemplate';
 import CompactTemplate from './templates/CompactTemplate';

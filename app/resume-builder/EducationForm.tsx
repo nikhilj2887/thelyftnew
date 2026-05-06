@@ -1,5 +1,5 @@
 import { Plus, Trash2 } from 'lucide-react';
-import type { Education } from '../../types/resume';
+import type { Education } from '../types/resume';
 
 interface Props {
   data: Education[];

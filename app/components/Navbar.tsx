@@ -27,38 +27,49 @@ export default function Navbar() {
   }, []);
 
   const navLinks = [
-    { href: "#home", label: "Home" },
-    { href: "#about", label: "About" },
-    { href: "#services", label: "Services" },
-    { href: "#expertise", label: "Expertise" },
-    { href: "#contact", label: "Contact" },
-  ];
+  { href: "#home", label: "Home" },
+  { href: "#about", label: "About" },
+  { href: "/founder", label: "Founder" },
+  { href: "#services", label: "Services" },
+  { href: "#expertise", label: "Expertise" },
+  { href: "/resume-builder", label: "Resume Builder" },
+  { href: "#contact", label: "Contact" },
+];
 
   const handleNavigation = (href: string) => {
 
-    // If not on homepage
-    if (
-      pathname === "/form" ||
-      pathname === "/resume-builder" ||
-      pathname === "/founder"
-    ) {
-      router.push("/" + href);
-      setIsMobileMenuOpen(false);
-      return;
-    }
+  // Handle separate pages
+  if (
+    href === "/founder" ||
+    href === "/resume-builder"
+  ) {
+    router.push(href);
+    setIsMobileMenuOpen(false);
+    return;
+  }
 
-    // Smooth scroll on homepage
-    const element =
-      document.querySelector(href);
+  // If currently on another page
+  if (
+    pathname === "/form" ||
+    pathname === "/resume-builder" ||
+    pathname === "/founder"
+  ) {
+    router.push("/" + href);
+    setIsMobileMenuOpen(false);
+    return;
+  }
 
-    if (element) {
-      element.scrollIntoView({
-        behavior: "smooth",
-      });
+  // Smooth scroll on homepage
+  const element = document.querySelector(href);
 
-      setIsMobileMenuOpen(false);
-    }
-  };
+  if (element) {
+    element.scrollIntoView({
+      behavior: "smooth",
+    });
+
+    setIsMobileMenuOpen(false);
+  }
+};
 
   const navItemStyle =
     "px-3 xl:px-4 py-2 text-[#4A4A4A] hover:text-[#151515] transition-all duration-300 relative group font-medium text-sm xl:text-base";
@@ -109,29 +120,7 @@ export default function Navbar() {
                 </button>
               ))}
 
-              {/* Founder */}
-              <Link
-                href="/founder"
-                className={`${navItemStyle} ${
-                  pathname === "/founder"
-                    ? "text-[#151515] font-semibold"
-                    : ""
-                }`}
-              >
-                Founder
-              </Link>
-
-              {/* Resume Builder */}
-              <Link
-                href="/resume-builder"
-                className={`${navItemStyle} ${
-                  pathname === "/resume-builder"
-                    ? "text-[#151515] font-semibold"
-                    : ""
-                }`}
-              >
-                Resume Builder
-              </Link>
+              
 
             </div>
 
@@ -182,36 +171,8 @@ export default function Navbar() {
               </button>
             ))}
 
-            {/* Founder */}
-            <Link
-              href="/founder"
-              onClick={() =>
-                setIsMobileMenuOpen(false)
-              }
-              className={`block px-4 py-3 rounded-xl transition-all duration-300 font-medium ${
-                pathname === "/founder"
-                  ? "bg-[#5392d5]/10 text-[#151515]"
-                  : "text-[#4A4A4A] hover:bg-[#5392d5]/10"
-              }`}
-            >
-              Founder
-            </Link>
-
-            {/* Resume Builder */}
-            <Link
-              href="/resume-builder"
-              onClick={() =>
-                setIsMobileMenuOpen(false)
-              }
-              className={`block px-4 py-3 rounded-xl transition-all duration-300 font-medium ${
-                pathname === "/resume-builder"
-                  ? "bg-[#5392d5]/10 text-[#151515]"
-                  : "text-[#4A4A4A] hover:bg-[#5392d5]/10"
-              }`}
-            >
-              Resume Builder
-            </Link>
-
+            
+            
             {/* CTA */}
             <Link
               href="/form"

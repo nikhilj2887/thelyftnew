@@ -1,5 +1,6 @@
 import { Target, Users, GraduationCap, Compass, Briefcase, ArrowRight } from 'lucide-react';
 import Navbar from './Navbar';
+import Image from "next/image";
 
 export default function FounderPage() {
   const initiatives = [
@@ -80,11 +81,13 @@ export default function FounderPage() {
               <div className="relative">
                 <div className="absolute inset-0 bg-gradient-to-br from-[#5392d5]/20 to-[#f0c831]/20 rounded-3xl blur-2xl scale-110"></div>
                 <div className="relative w-72 h-72 sm:w-80 sm:h-80 lg:w-96 lg:h-96 rounded-3xl overflow-hidden border-4 border-white shadow-2xl">
-                  <img
-                    src="https://images.pexels.com/photos/3184611/pexels-photo-3184611.jpeg?auto=compress&cs=tinysrgb&w=800"
-                    alt="Nikhil Artham - Founder of thelyft"
-                    className="w-full h-full object-cover"
-                  />
+                  <Image
+                      src="/images/founder.jpg"
+                      alt="Founder"
+                      width={800}
+                      height={800}
+                      className="w-full h-full object-cover"
+                    />
                 </div>
                 <div className="absolute -bottom-4 -right-4 bg-white p-4 rounded-2xl shadow-xl border border-[#5392d5]/20">
                   <div className="text-center">
